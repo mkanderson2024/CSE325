@@ -1,0 +1,142 @@
+GET {{ContosoPizza_HostAddress}}/weatherforecast/
+Accept: application/json
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json; charset=utf-8
+Date: Sun, 01 Nov 2026 00:19:38 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+
+[
+  {
+    "date": "2026-11-01",
+    "temperatureC": 44,
+    "temperatureF": 111,
+    "summary": "Sweltering"
+  },
+  {
+    "date": "2026-11-02",
+    "temperatureC": 16,
+    "temperatureF": 60,
+    "summary": "Hot"
+  },
+  {
+    "date": "2026-11-03",
+    "temperatureC": 13,
+    "temperatureF": 55,
+    "summary": "Sweltering"
+  },
+  {
+    "date": "2026-11-04",
+    "temperatureC": -1,
+    "temperatureF": 31,
+    "summary": "Chilly"
+  },
+  {
+    "date": "2026-11-05",
+    "temperatureC": 27,
+    "temperatureF": 80,
+    "summary": "Chilly"
+  }
+]
+
+###
+GET {{ContosoPizza_HostAddress}}/pizza/
+Accept: application/json
+
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json; charset=utf-8
+Date: Sun, 01 Nov 2026 00:23:19 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+
+[
+  {
+    "id": 1,
+    "name": "Classic Italian",
+    "isGlutenFree": false
+  },
+  {
+    "id": 2,
+    "name": "Veggie",
+    "isGlutenFree": true
+  },
+  {
+    "id": 3,
+    "name": "Hawaiian Jalapeno Pepperoni",
+    "isGlutenFree": false
+  },
+  {
+    "id": 4,
+    "name": "Jalapeno Pepperoni",
+    "isGlutenFree": false
+  }
+]
+
+
+POST {{ContosoPizza_HostAddress}}/pizza/
+Content-Type: application/json
+
+{
+    "name": "Jalapeno Pepperoni",
+    "isGlutenFree": false
+}
+
+HTTP/1.1 201 Created
+Connection: close
+Content-Type: application/json; charset=utf-8
+Date: Sun, 01 Nov 2026 00:21:26 GMT
+Server: Kestrel
+Location: https://localhost:7130/Pizza/4
+Transfer-Encoding: chunked
+
+{
+  "id": 4,
+  "name": "Jalapeno Pepperoni",
+  "isGlutenFree": false
+}
+
+
+###
+DELETE {{ContosoPizza_HostAddress}}/pizza/3
+
+HTTP/1.1 204 No Content
+Connection: close
+Date: Sun, 01 Nov 2026 00:24:21 GMT
+Server: Kestrel
+
+============= Summary Function =============
+
+// Generate a formated sales summarry report string
+string GenerateSalesSummaryReport(IEnumerable<string> salesFiles)
+{
+    var summary = new StringBuilder();
+    double summaryTotal = 0;
+    var fileDetails = new List<(string storeId, double Total)>();
+
+    summary.AppendLine("============= Sales Summary =============");
+
+    foreach (var file in salesFiles)
+    {
+        string salesJson = File.ReadAllText(file);
+        SalesData? data = JsonConvert.DeserializeObject<SalesData?>(salesJson);
+        double fileTotal = data?.Total ?? 0;
+
+        summaryTotal += fileTotal;
+
+        var storeId = Path.GetFileName(Path.GetDirectoryName(file));
+
+        fileDetails.Add((storeId ?? "Unknown", fileTotal));
+    }
+
+    summary.AppendLine($"Total Sales: {summaryTotal:C}");
+    summary.AppendLine();
+    summary.AppendLine("Details");
+
+    foreach (var detail in fileDetails)
+    {
+        summary.AppendLine($"  {detail.storeId}: {detail.Total:C}");
+    }
+    return summary.ToString();
+}

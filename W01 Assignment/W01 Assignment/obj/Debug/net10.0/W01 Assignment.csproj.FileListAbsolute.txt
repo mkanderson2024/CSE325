@@ -1,0 +1,14 @@
+C:\Users\kalan\Documents\CSE 325\W01 Assignment\W01 Assignment\bin\Debug\net10.0\W01 Assignment.exe
+C:\Users\kalan\Documents\CSE 325\W01 Assignment\W01 Assignment\bin\Debug\net10.0\W01 Assignment.deps.json
+C:\Users\kalan\Documents\CSE 325\W01 Assignment\W01 Assignment\bin\Debug\net10.0\W01 Assignment.runtimeconfig.json
+C:\Users\kalan\Documents\CSE 325\W01 Assignment\W01 Assignment\bin\Debug\net10.0\W01 Assignment.dll
+C:\Users\kalan\Documents\CSE 325\W01 Assignment\W01 Assignment\bin\Debug\net10.0\W01 Assignment.pdb
+C:\Users\kalan\Documents\CSE 325\W01 Assignment\W01 Assignment\obj\Debug\net10.0\W01 Assignment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kalan\Documents\CSE 325\W01 Assignment\W01 Assignment\obj\Debug\net10.0\W01 Assignment.AssemblyInfoInputs.cache
+C:\Users\kalan\Documents\CSE 325\W01 Assignment\W01 Assignment\obj\Debug\net10.0\W01 Assignment.AssemblyInfo.cs
+C:\Users\kalan\Documents\CSE 325\W01 Assignment\W01 Assignment\obj\Debug\net10.0\W01 Assignment.csproj.CoreCompileInputs.cache
+C:\Users\kalan\Documents\CSE 325\W01 Assignment\W01 Assignment\obj\Debug\net10.0\W01 Assignment.dll
+C:\Users\kalan\Documents\CSE 325\W01 Assignment\W01 Assignment\obj\Debug\net10.0\refint\W01 Assignment.dll
+C:\Users\kalan\Documents\CSE 325\W01 Assignment\W01 Assignment\obj\Debug\net10.0\W01 Assignment.pdb
+C:\Users\kalan\Documents\CSE 325\W01 Assignment\W01 Assignment\obj\Debug\net10.0\W01 Assignment.genruntimeconfig.cache
+C:\Users\kalan\Documents\CSE 325\W01 Assignment\W01 Assignment\obj\Debug\net10.0\ref\W01 Assignment.dll
